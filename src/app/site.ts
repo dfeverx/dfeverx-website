@@ -9,7 +9,7 @@ export const TAGLINE = "Nothing we make is ever finished — including us.";
 export const INTRO =
   "";
 
-export const TITLE = "dfeverx — two-person product studio";
+export const TITLE = "dfeverx | Some things you can't cool down.";
 export const DESCRIPTION =
   "dfeverx is  product studio building software that takes weight off somebody's day. Nothing we make is ever finished — including us.";
 
