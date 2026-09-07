@@ -25,30 +25,9 @@ npm run deploy    # next build && firebase deploy --only hosting
 
 Live at https://dfeverx-com.web.app (project `dfeverx-com`).
 
-`firebase-tools` is a pinned devDependency, so the deploy toolchain is versioned
-and integrity-checked via `package-lock.json`. Do **not** use a globally installed
-Firebase CLI here — see the note below.
-
-### Note: the Homebrew Firebase CLI is broken on macOS 26
-
-`brew install firebase-cli` ships a `fsevents.node` that Homebrew thinned to
-arm64-only without re-signing, leaving a stale ad-hoc signature. On macOS 26 the
-code-signing monitor SIGKILLs node the moment `firebase deploy` `dlopen()`s it:
-
-```
-zsh: killed     firebase deploy --only hosting
-```
-
-Do not "fix" this with `codesign --force` — that rubber-stamps a binary whose
-integrity can't be verified. Use `npm run deploy` instead, and optionally
-`brew uninstall firebase-cli` to remove the broken copy.
-
-### Dependency audit
-
-`npm audit` reports moderate advisories inside `firebase-tools`' own transitive
-dependencies. `npm audit --omit=dev` is clean — nothing vulnerable is served to
-visitors. The suggested autofix downgrades `firebase-tools` to 10.1.1, which is
-worse; leave it pinned.
+See **[DEPLOY.md](DEPLOY.md)** for first-time setup, preview channels, rollback,
+custom-domain steps, and why you must not use a globally installed Firebase CLI
+on macOS 26.
 
 ## Security headers
 
